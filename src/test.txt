@@ -1,0 +1,47 @@
+#Definicion de token para (IDs) y palabras clave
+#necesito que mi lexer reconozca las palabras clave como lo que son y las que no com id 
+
+def t_ID(t):
+    r'[a-z_][a-z_]*|ID'
+    return t
+
+#Definicion de un token numero (int o float)
+def t_NUMBER(t):
+    r'\d+'
+    t.value = int(t.value)
+    return t
+
+#Definicion de token para (string)
+def t_STRING(t):
+    r'\'[^\']*\'|\"[^\"]*\"'
+    t.value = t.value[1:-1]
+    return t
+
+#Manejo de errores
+def t_error(t):
+    #r'[^0-9\+\-\*\/\(\)]'
+    print("caracter ilegal '%s'" % t.value[0])
+    t.lexer.skip(1)
+
+
+#Construimos el lexer
+lexer = lex.lex()
+
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    # Ejemplo de entrada
+    sql_code = """
+    SELECT id, name FROM users WHERE age > 18;
+    """
+
+    # Asignar la entrada al lexer
+    lexer.input(sql_code)
+
+    # Tokenizar e imprimir los tokens
+    while True:
+        tok = lexer.token()
+        if not tok:
+            break  # No hay más tokens
+        print(tok)
+        
