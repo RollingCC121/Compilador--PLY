@@ -1,8 +1,15 @@
 from analizadorSintactico import parser
-from analizadorSemantico import check_semantics
+from analizadorSemantico import SemanticAnalyzer
 
 # Ejemplo de uso
-data = "sum = (10 + 20) * 3"
-ast = parser.parse(data)
-check_semantics(ast)
+#"sum = (10 + 20) * 3"
+
+data = """
+x = 5
+y = 10
+z = x + y * 2"""
+result = parser.parse(data)
+semantic_analyzer = SemanticAnalyzer()
+semantic_analyzer.analyze(result)
+
 

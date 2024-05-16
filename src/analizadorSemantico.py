@@ -1,61 +1,54 @@
+from analizadorSintactico import parser
 
-# Definición de variables
-variables = {}
+class SemanticAnalyzer:
+    def __init__(self):
+        self.variables = {}
 
-# Evaluación de expresiones
-def evaluate_expression(expr):
-    if isinstance(expr, tuple):
-        op, left, right = expr
-        print(f"Evaluando expresión: {left} {op} {right}")
-        left_val = evaluate_expression(left)
-        right_val = evaluate_expression(right)
-        if left_val is None or right_val is None:
-            print("Error semántico: subexpresión no válida.")
-            return None
-        if op == '+':
-            return left_val + right_val
-        elif op == '-':
-            return left_val - right_val
-        elif op == '*':
-            return left_val * right_val
-        elif op == '/':
-            if right_val != 0:
-                return left_val / right_val
-            else:
-                print("Error semántico: división por cero.")
-                return None
-    elif isinstance(expr, str) and expr.isdigit():
-        return int(expr)
-    elif isinstance(expr, str):
-        if expr in variables:
-            return variables[expr]
-        else:
-            print(f"Error semántico: variable '{expr}' no definida.")
-            return None
-    else:
-        print("Error semántico: expresión no válida.")
-        return None
+    def analyze(self, tree):
+        for node in tree:
+            if node[0] == 'assign':
+                if self.handle_assignment(node[1], node[2]):
+                    print(f"Asignación de '{node[1]}' correcta.")
+            elif node[0] in ('+', '-', '*', '/'):
+                if self.handle_expression(node):
+                    print("Expresión analizada correctamente.")
 
+    def handle_assignment(self, var_name, value):
+        if isinstance(value, tuple):
+            if value[0] == 'identifier':
+                if value[1] not in self.variables:
+                    print(f"Error semántico: La variable '{value[1]}' no está definida.")
+                    return False
+            elif value[0] == 'number':
+                self.variables[var_name] = 'number'
+        elif isinstance(value, tuple) and value[0] in ('+', '-', '*', '/'):
+            self.handle_expression(value)
+        return True
 
-# Reglas semánticas
-def check_semantics(ast):
-    if isinstance(ast, tuple):
-        if ast[0] == 'assign':
-            _, var, expr = ast
-            result = evaluate_expression(expr)
-            if result is not None:
-                variables[var] = result
-        else:
-            op, left, right = ast
-            check_semantics(left)
-            check_semantics(right)
-    elif isinstance(ast, str) and ast.isdigit():
-        # Si es un número, no hay problemas semánticos
-        pass
-    elif isinstance(ast, str):
-        if ast not in variables:
-            print(f"Error semántico: variable '{ast}' no definida.")
-            return None
-    else:
-        print("Error semántico: nodo desconocido en el AST.")
-        return None
+    def handle_expression(self, node):
+        op, left, right = node
+        if isinstance(left, tuple) and left[0] == 'identifier':
+            if left[1] not in self.variables:
+                print(f"Error semántico: La variable '{left[1]}' no está definida.")
+                return False
+        elif isinstance(left, tuple) and left[0] in ('+', '-', '*', '/'):
+            self.handle_expression(left)
+        if isinstance(right, tuple) and right[0] == 'identifier':
+            if right[1] not in self.variables:
+                print(f"Error semántico: La variable '{right[1]}' no está definida.")
+                return False
+        elif isinstance(right, tuple) and right[0] in ('+', '-', '*', '/'):
+            self.handle_expression(right)
+        return True
+'''
+# Ejemplo de uso
+data = """
+x = 5
+y = 10
+z = x + y * 2"""
+result = parser.parse(data)
+
+# Analizador semántico
+semantic_analyzer = SemanticAnalyzer()
+semantic_analyzer.analyze(result)
+'''

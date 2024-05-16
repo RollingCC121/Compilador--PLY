@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'DIVIDE EQUALS IDENTIFIER LPAREN MINUS NUMBER PLUS RPAREN TIMESstatement : IDENTIFIER EQUALS expressionexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression DIVIDE expressionexpression : LPAREN expression RPARENexpression : NUMBER'
+_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDEDIVIDE EQUALS IDENTIFIER LPAREN MINUS NUMBER PLUS RPAREN TIMESstatements : statements statement\n                  | statementstatement : IDENTIFIER EQUALS expressionstatement : expressionexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression DIVIDE expressionexpression : LPAREN expression RPARENexpression : IDENTIFIERexpression : NUMBER'
     
-_lr_action_items = {'IDENTIFIER':([0,],[2,]),'$end':([1,4,6,12,13,14,15,16,],[0,-1,-7,-2,-3,-4,-5,-6,]),'EQUALS':([2,],[3,]),'LPAREN':([3,5,7,8,9,10,],[5,5,5,5,5,5,]),'NUMBER':([3,5,7,8,9,10,],[6,6,6,6,6,6,]),'PLUS':([4,6,11,12,13,14,15,16,],[7,-7,7,7,7,7,7,-6,]),'MINUS':([4,6,11,12,13,14,15,16,],[8,-7,8,8,8,8,8,-6,]),'TIMES':([4,6,11,12,13,14,15,16,],[9,-7,9,9,9,9,9,-6,]),'DIVIDE':([4,6,11,12,13,14,15,16,],[10,-7,10,10,10,10,10,-6,]),'RPAREN':([6,11,12,13,14,15,16,],[-7,16,-2,-3,-4,-5,-6,]),}
+_lr_action_items = {'IDENTIFIER':([0,1,2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,],[3,3,-2,-10,-4,14,-11,-1,14,14,14,14,14,-10,-3,-5,-6,-7,-8,-9,]),'LPAREN':([0,1,2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,],[5,5,-2,-10,-4,5,-11,-1,5,5,5,5,5,-10,-3,-5,-6,-7,-8,-9,]),'NUMBER':([0,1,2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,],[6,6,-2,-10,-4,6,-11,-1,6,6,6,6,6,-10,-3,-5,-6,-7,-8,-9,]),'$end':([1,2,3,4,6,7,14,15,16,17,18,19,20,],[0,-2,-10,-4,-11,-1,-10,-3,-5,-6,-7,-8,-9,]),'EQUALS':([3,],[8,]),'PLUS':([3,4,6,13,14,15,16,17,18,19,20,],[-10,9,-11,9,-10,9,-5,-6,-7,-8,-9,]),'MINUS':([3,4,6,13,14,15,16,17,18,19,20,],[-10,10,-11,10,-10,10,-5,-6,-7,-8,-9,]),'TIMES':([3,4,6,13,14,15,16,17,18,19,20,],[-10,11,-11,11,-10,11,11,11,-7,-8,-9,]),'DIVIDE':([3,4,6,13,14,15,16,17,18,19,20,],[-10,12,-11,12,-10,12,12,12,-7,-8,-9,]),'RPAREN':([6,13,14,16,17,18,19,20,],[-11,20,-10,-5,-6,-7,-8,-9,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'statement':([0,],[1,]),'expression':([3,5,7,8,9,10,],[4,11,12,13,14,15,]),}
+_lr_goto_items = {'statements':([0,],[1,]),'statement':([0,1,],[2,7,]),'expression':([0,1,5,8,9,10,11,12,],[4,4,13,15,16,17,18,19,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,12 +26,16 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> statement","S'",1,None,None,None),
-  ('statement -> IDENTIFIER EQUALS expression','statement',3,'p_statement_assign','analizadorSintactico.py',6),
-  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','analizadorSintactico.py',10),
-  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','analizadorSintactico.py',11),
-  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','analizadorSintactico.py',12),
-  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','analizadorSintactico.py',13),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','analizadorSintactico.py',17),
-  ('expression -> NUMBER','expression',1,'p_expression_number','analizadorSintactico.py',21),
+  ("S' -> statements","S'",1,None,None,None),
+  ('statements -> statements statement','statements',2,'p_statements','analizadorSintactico.py',11),
+  ('statements -> statement','statements',1,'p_statements','analizadorSintactico.py',12),
+  ('statement -> IDENTIFIER EQUALS expression','statement',3,'p_statement_assign','analizadorSintactico.py',19),
+  ('statement -> expression','statement',1,'p_statement_expr','analizadorSintactico.py',23),
+  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','analizadorSintactico.py',27),
+  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','analizadorSintactico.py',28),
+  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','analizadorSintactico.py',29),
+  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','analizadorSintactico.py',30),
+  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','analizadorSintactico.py',34),
+  ('expression -> IDENTIFIER','expression',1,'p_expression_identifier','analizadorSintactico.py',38),
+  ('expression -> NUMBER','expression',1,'p_expression_number','analizadorSintactico.py',42),
 ]

@@ -46,7 +46,11 @@ def t_error(t):
 lexer = lex.lex()
 '''
 # Ejemplo de uso
-data = "sum = 10 + 20"
+data = """
+x = 5
+y = 10
+z = x + y * 2
+"""
 lexer.input(data)
 
 while True:
