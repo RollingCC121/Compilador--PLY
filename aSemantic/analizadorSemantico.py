@@ -1,4 +1,4 @@
-from analizadorSintactico import parser
+from aParser.analizadorSintactico import parser
 
 class SemanticAnalyzer:
     def __init__(self):
