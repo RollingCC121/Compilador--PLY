@@ -1,5 +1,5 @@
 import ply.yacc as yacc
-from Lexer.analizadorLexico import tokens
+from lexer.analizadorLexico import tokens
 
 # Reglas de la gramática
 precedence = (

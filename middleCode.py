@@ -50,6 +50,28 @@ class IntermediateCodeGenerator:
 
         self.intermediate_code.append(f'{result_var} = {left_operand} {op} {right_operand}')
 
+
+class CodeOptimizer:
+    def __init__(self):
+        pass
+
+    def optimize_code(self, intermediate_code):
+        optimized_code = []
+        assignments = set()
+        
+        for line in intermediate_code:
+            tokens = line.split(' ')
+            if len(tokens) >= 3 and tokens[1] == '=':
+                target = tokens[0]
+                if target not in assignments:
+                    assignments.add(target)
+                    optimized_code.append(line)
+            else:
+                optimized_code.append(line)
+        
+        return optimized_code
+
+'''
 # Ejemplo de uso
 data = """
 x = 5
@@ -63,7 +85,19 @@ result = parser.parse(data)
 code_generator = IntermediateCodeGenerator()
 code_generator.generate_code(result)
 
-# Imprimir código intermedio generado
-print("Código Intermedio:")
+
+# Imprimir código intermedio generado antes de la optimización
+print("Código Intermedio (Antes de la Optimización):")
 for line in code_generator.intermediate_code:
     print(line)
+
+
+# Optimización de código
+optimizer = CodeOptimizer()
+optimized_code = optimizer.optimize_code(code_generator.intermediate_code)
+
+# Imprimir código intermedio optimizado
+print("\nCódigo Intermedio Optimizado:")
+for line in optimized_code:
+    print(line)
+'''
