@@ -3,13 +3,20 @@ from lexer.analizadorLexico import tokens,lexer
 from aParser.analizadorSintactico import parser as syntactic_parser
 from aSemantic.analizadorSemantico import SemanticAnalyzer
 from middleCode import IntermediateCodeGenerator
+from binaryGenerator import BinaryCodeGenerator 
 
-# Ejemplo de código fuente
-source_code = """
-x = 5
-y = 10
-z = x + y * 2
-"""
+
+
+
+
+
+file_path = "texto.txt"
+try:
+    with open(file_path, "r") as file:
+        source_code = file.read()
+except FileNotFoundError:
+    print(f"No se encontró el archivo: {file_path}")
+    exit()
 
 # Imprimir tokens generados por el analizador léxico
 lexer.input(source_code)
@@ -41,6 +48,31 @@ except Exception as e:
 print("\nCódigo intermedio generado:")
 for line in code_generator.intermediate_code:
     print(line)
+
+
+# Generación de código binario con validación
+binary_generator = BinaryCodeGenerator()
+try:
+    binary_generator.validate_and_generate_code(code_generator.intermediate_code)
+    # Impresión del código binario
+    binary_code = binary_generator.get_binary_code()
+    print("\nCódigo binario generado:")
+    print(binary_code.hex())
+except ValueError as e:
+    print("\nError durante la generación del código binario:")
+    print(e)# Generación de código binario con validación
+binary_generator = BinaryCodeGenerator()
+try:
+    binary_generator.validate_and_generate_code(code_generator.intermediate_code)
+    # Impresión del código binario
+    binary_code = binary_generator.get_binary_code()
+    #print("\nCódigo binario generado:")
+    #print(binary_code.hex())
+except ValueError as e:
+    print("\nError durante la generación del código binario:")
+    print(e)
+
+
 
 '''
 from aParser.analizadorSintactico import parser
