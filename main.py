@@ -2,8 +2,8 @@ import ply.yacc as yacc
 from lexer.analizadorLexico import tokens,lexer
 from aParser.analizadorSintactico import parser as syntactic_parser
 from aSemantic.analizadorSemantico import SemanticAnalyzer
-from middleCode import IntermediateCodeGenerator
-from binaryGenerator import BinaryCodeGenerator 
+from generator.middleCode import IntermediateCodeGenerator
+from generator.binaryGenerator import BinaryCodeGenerator 
 
 
 
