@@ -11,6 +11,15 @@ tokens = [
     'LPAREN',
     'RPAREN',
     'EQUALS',
+    'POWER',
+    'LT',
+    'GT',
+    'LE',
+    'GE',
+    'EQ',
+    'NE',
+    'SQRT',
+    'LOG',
 ]
 
 
@@ -22,12 +31,27 @@ t_DIVIDE = r'/'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_EQUALS = r'='
+t_POWER = R'\^'
+t_LT = r'<'
+t_GT = r'>'
+t_LE = r'<='
+t_GE = r'>='
+t_EQ = r'=='
+t_NE = r'!='
 
 # Ignorar caracteres como espacios y saltos de línea
 t_ignore = ' \t\n'
 
 
 # Definición de funciones para tokens más complejos
+def t_SQRT(t):
+    r'sqrt'
+    return t
+
+def t_LOG(t):
+    r'log'
+    return t
+
 def t_NUMBER(t):
     r'\d+'
     t.value = int(t.value)

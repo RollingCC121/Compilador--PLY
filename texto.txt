@@ -2,3 +2,10 @@ x = 5
 y = 10
 z = x + y * 2
 c = ((x + y) * 2) + z 
+a = sqrt(x) + y ^ 2
+w = log(z)
+result = x * y + a - w
+inequality1 = a < y
+inequality2 = z >= w
+inequality3 = x == 5
+inequality4 = y != 20

@@ -27,8 +27,27 @@ def p_expression_binop(p):
     '''expression : expression PLUS expression
                   | expression MINUS expression
                   | expression TIMES expression
-                  | expression DIVIDE expression'''
+                  | expression DIVIDE expression
+                  | expression POWER expression
+                  '''
     p[0] = (p[2], p[1], p[3])
+
+def p_expression_ineq(p):
+    '''expression : expression LT expression
+                  | expression GT expression
+                  | expression LE expression
+                  | expression GE expression
+                  | expression EQ expression
+                  | expression NE expression'''
+    p[0] = (p[2], p[1], p[3])
+
+def p_expression_sqrt(p):
+    'expression : SQRT LPAREN expression RPAREN'
+    p[0] = ('sqrt', p[3])
+
+def p_expression_log(p):
+    'expression : LOG LPAREN expression RPAREN'
+    p[0] = ('log', p[3])
 
 def p_expression_group(p):
     'expression : LPAREN expression RPAREN'
