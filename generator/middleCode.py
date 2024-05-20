@@ -79,7 +79,7 @@ class IntermediateCodeGenerator:
         # Genera el código intermedio para una expresión, almacenando el resultado en result_var
         op = node[0]  # Obtiene el operador de la expresión
         if op in ('+', '-', '*', '/', '^', '<', '>', '<=', '>=', '==', '!='):
-            # Si el operador es una operación aritmética o comparación, maneja la operación
+            # Si el operador es una operación aritmética comparación, maneja la operación
             left = node[1]
             right = node[2]
             left_operand = self.handle_expression(left)  # Maneja el operando izquierdo

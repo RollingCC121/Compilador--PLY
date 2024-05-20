@@ -49,12 +49,4 @@ try:
 except ValueError as e:
     print("\nError durante la generación del código binario:")
     print(e)# Generación de código binario con validación
-binary_generator = BinaryCodeGenerator()
-try:
-    binary_generator.validate_and_generate_code(code_generator.intermediate_code)
-    # Impresión del código binario
-    binary_code = binary_generator.get_binary_code()
 
-except ValueError as e:
-    print("\nError durante la generación del código binario:")
-    print(e)

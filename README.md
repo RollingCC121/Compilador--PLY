@@ -10,11 +10,19 @@ Un compilador generalmente consta de varias fases:
 
 # Guia de Ejecución
 
-Este compilador esta divido por modulos, donde cada modulo cumple una de las funciones anteriores; se invocan en el arhivo main.py y se ejecutan para analisaar el archivo texto.txt. Si desea ejecutar el compilador tiene que hacer lo siguiente:
+Este compilador esta divido por modulos, donde cada modulo cumple una de las funciones anteriores; se invocan en el arhivo main.py y se ejecutan para analisar el archivo texto.txt. Si desea ejecutar el compilador tiene que hacer lo siguiente:
 
 ## Paso 1:
 
-Asegúrate de estar en el directorio Compilador--PLY.
+Asegúrate de descargar el repositorio en tu pc y de ubicarte en el directorio Compilador--PLY.
+
+```shell
+git clone URL
+```
+
+```shell
+cd ../../../compilador--ply
+```
 
 ## Paso 2:
 
@@ -48,4 +56,4 @@ https://github.com/yetto-tools/compilador_con_ply/tree/main
 
 https://youtu.be/iXArNJWLYes?si=GcZXjKt0SRfZIDX2
 
-chatgpt
+https://chatgpt.com
