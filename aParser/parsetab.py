@@ -6,7 +6,7 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDEDIVIDE EQ EQUALS GE GT IDENTIFIER LE LOG LPAREN LT MINUS NE NUMBER PLUS POWER RPAREN SQRT TIMESstatements : statements statement\n                  | statementstatement : IDENTIFIER EQUALS expressionstatement : expressionexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression DIVIDE expression\n                  | expression POWER expression\n                  expression : expression LT expression\n                  | expression GT expression\n                  | expression LE expression\n                  | expression GE expression\n                  | expression EQ expression\n                  | expression NE expressionexpression : SQRT LPAREN expression RPARENexpression : LOG LPAREN expression RPARENexpression : LPAREN expression RPARENexpression : IDENTIFIERexpression : NUMBER'
+_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDEDIVIDE EQ EQUALS GE GT IDENTIFIER LE LOG LPAREN LT MINUS NE NUMBER PLUS POWER RPAREN SQRT TIMESstatements : statements statement\n                  | statementstatement : IDENTIFIER EQUALS expressionstatement : expressionexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression DIVIDE expression\n                  | expression POWER expressionexpression : expression LT expression\n                  | expression GT expression\n                  | expression LE expression\n                  | expression GE expression\n                  | expression EQ expression\n                  | expression NE expressionexpression : SQRT LPAREN expression RPARENexpression : LOG LPAREN expression RPARENexpression : LPAREN expression RPARENexpression : IDENTIFIERexpression : NUMBER'
     
 _lr_action_items = {'IDENTIFIER':([0,1,2,3,4,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31,32,33,34,35,36,37,39,41,42,],[3,3,-2,-19,-4,24,-20,-1,24,24,24,24,24,24,24,24,24,24,24,24,24,-19,24,-3,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-18,-16,-17,]),'SQRT':([0,1,2,3,4,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31,32,33,34,35,36,37,39,41,42,],[5,5,-2,-19,-4,5,-20,-1,5,5,5,5,5,5,5,5,5,5,5,5,5,-19,5,-3,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-18,-16,-17,]),'LOG':([0,1,2,3,4,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31,32,33,34,35,36,37,39,41,42,],[7,7,-2,-19,-4,7,-20,-1,7,7,7,7,7,7,7,7,7,7,7,7,7,-19,7,-3,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-18,-16,-17,]),'LPAREN':([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31,32,33,34,35,36,37,39,41,42,],[6,6,-2,-19,-4,22,6,25,-20,-1,6,6,6,6,6,6,6,6,6,6,6,6,6,-19,6,-3,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-18,-16,-17,]),'NUMBER':([0,1,2,3,4,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31,32,33,34,35,36,37,39,41,42,],[8,8,-2,-19,-4,8,-20,-1,8,8,8,8,8,8,8,8,8,8,8,8,8,-19,8,-3,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-18,-16,-17,]),'$end':([1,2,3,4,8,9,24,26,27,28,29,30,31,32,33,34,35,36,37,39,41,42,],[0,-2,-19,-4,-20,-1,-19,-3,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-18,-16,-17,]),'EQUALS':([3,],[10,]),'PLUS':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,11,-20,11,-19,11,-5,-6,-7,-8,11,11,11,11,11,11,11,11,-18,11,-16,-17,]),'MINUS':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,12,-20,12,-19,12,-5,-6,-7,-8,12,12,12,12,12,12,12,12,-18,12,-16,-17,]),'TIMES':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,13,-20,13,-19,13,13,13,-7,-8,13,13,13,13,13,13,13,13,-18,13,-16,-17,]),'DIVIDE':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,14,-20,14,-19,14,14,14,-7,-8,14,14,14,14,14,14,14,14,-18,14,-16,-17,]),'POWER':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,15,-20,15,-19,15,-5,-6,-7,-8,15,15,15,15,15,15,15,15,-18,15,-16,-17,]),'LT':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,16,-20,16,-19,16,-5,-6,-7,-8,16,16,16,16,16,16,16,16,-18,16,-16,-17,]),'GT':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,17,-20,17,-19,17,-5,-6,-7,-8,17,17,17,17,17,17,17,17,-18,17,-16,-17,]),'LE':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,18,-20,18,-19,18,-5,-6,-7,-8,18,18,18,18,18,18,18,18,-18,18,-16,-17,]),'GE':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,19,-20,19,-19,19,-5,-6,-7,-8,19,19,19,19,19,19,19,19,-18,19,-16,-17,]),'EQ':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,20,-20,20,-19,20,-5,-6,-7,-8,20,20,20,20,20,20,20,20,-18,20,-16,-17,]),'NE':([3,4,8,23,24,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-19,21,-20,21,-19,21,-5,-6,-7,-8,21,21,21,21,21,21,21,21,-18,21,-16,-17,]),'RPAREN':([8,23,24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,],[-20,39,-19,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,41,-18,42,-16,-17,]),}
 
@@ -27,24 +27,24 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> statements","S'",1,None,None,None),
-  ('statements -> statements statement','statements',2,'p_statements','analizadorSintactico.py',11),
-  ('statements -> statement','statements',1,'p_statements','analizadorSintactico.py',12),
-  ('statement -> IDENTIFIER EQUALS expression','statement',3,'p_statement_assign','analizadorSintactico.py',19),
-  ('statement -> expression','statement',1,'p_statement_expr','analizadorSintactico.py',23),
-  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','analizadorSintactico.py',27),
-  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','analizadorSintactico.py',28),
-  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','analizadorSintactico.py',29),
-  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','analizadorSintactico.py',30),
-  ('expression -> expression POWER expression','expression',3,'p_expression_binop','analizadorSintactico.py',31),
-  ('expression -> expression LT expression','expression',3,'p_expression_ineq','analizadorSintactico.py',36),
-  ('expression -> expression GT expression','expression',3,'p_expression_ineq','analizadorSintactico.py',37),
-  ('expression -> expression LE expression','expression',3,'p_expression_ineq','analizadorSintactico.py',38),
-  ('expression -> expression GE expression','expression',3,'p_expression_ineq','analizadorSintactico.py',39),
-  ('expression -> expression EQ expression','expression',3,'p_expression_ineq','analizadorSintactico.py',40),
-  ('expression -> expression NE expression','expression',3,'p_expression_ineq','analizadorSintactico.py',41),
-  ('expression -> SQRT LPAREN expression RPAREN','expression',4,'p_expression_sqrt','analizadorSintactico.py',45),
-  ('expression -> LOG LPAREN expression RPAREN','expression',4,'p_expression_log','analizadorSintactico.py',49),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','analizadorSintactico.py',52),
-  ('expression -> IDENTIFIER','expression',1,'p_expression_identifier','analizadorSintactico.py',56),
-  ('expression -> NUMBER','expression',1,'p_expression_number','analizadorSintactico.py',60),
+  ('statements -> statements statement','statements',2,'p_statements','analizadorSintactico.py',14),
+  ('statements -> statement','statements',1,'p_statements','analizadorSintactico.py',15),
+  ('statement -> IDENTIFIER EQUALS expression','statement',3,'p_statement_assign','analizadorSintactico.py',23),
+  ('statement -> expression','statement',1,'p_statement_expr','analizadorSintactico.py',28),
+  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','analizadorSintactico.py',33),
+  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','analizadorSintactico.py',34),
+  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','analizadorSintactico.py',35),
+  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','analizadorSintactico.py',36),
+  ('expression -> expression POWER expression','expression',3,'p_expression_binop','analizadorSintactico.py',37),
+  ('expression -> expression LT expression','expression',3,'p_expression_ineq','analizadorSintactico.py',42),
+  ('expression -> expression GT expression','expression',3,'p_expression_ineq','analizadorSintactico.py',43),
+  ('expression -> expression LE expression','expression',3,'p_expression_ineq','analizadorSintactico.py',44),
+  ('expression -> expression GE expression','expression',3,'p_expression_ineq','analizadorSintactico.py',45),
+  ('expression -> expression EQ expression','expression',3,'p_expression_ineq','analizadorSintactico.py',46),
+  ('expression -> expression NE expression','expression',3,'p_expression_ineq','analizadorSintactico.py',47),
+  ('expression -> SQRT LPAREN expression RPAREN','expression',4,'p_expression_sqrt','analizadorSintactico.py',52),
+  ('expression -> LOG LPAREN expression RPAREN','expression',4,'p_expression_log','analizadorSintactico.py',57),
+  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','analizadorSintactico.py',62),
+  ('expression -> IDENTIFIER','expression',1,'p_expression_identifier','analizadorSintactico.py',67),
+  ('expression -> NUMBER','expression',1,'p_expression_number','analizadorSintactico.py',72),
 ]
